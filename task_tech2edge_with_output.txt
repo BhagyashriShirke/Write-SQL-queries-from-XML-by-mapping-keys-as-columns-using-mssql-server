@@ -1,0 +1,174 @@
+# FOR CREATEING TABLE "COURSES"
+
+->>
+CMD:
+	CREATE TABLE courses (
+	Id BIGINT NOT NULL IDENTITY (1,1) ,
+	 CourseId NVARCHAR(500) NOT NULL,
+	 [URL] NVARCHAR(500),
+	 title NVARCHAR(200),
+	 [level] NVARCHAR(100),
+	 authors NVARCHAR(100),
+	 durationInMinutes INT,
+	 publishedDate DATE,
+	 audienceTags NVARCHAR(100),
+	 certificationTags NVARCHAR(100),
+	 [description] NVARCHAR(MAX),
+	 [date] DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP 
+	 CONSTRAINT[COURSE_PK] PRIMARY KEY(Id),
+	 CONSTRAINT[UQ_CourseID_date] UNIQUE(CourseId,[date])
+	)
+
+output:
+       Commands completed successfully.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+command:
+        select * from courses;
+output:		
+		
+|	Id   |  CourseId  |	URL	title  |	level  |  authors | durationInMinutes	| publishedDate  |	audienceTags   |  certificationTags  |  description	| date |
+
+-----------------------------------------------------------------------------------------------------------------------------------
+# FOR UNIQUE VALUE CREATE SEQUENCE FOR "CourseId" :
+
+command:
+		CREATE SEQUENCE [dbo].[sqrand] 
+		 AS [bigint]
+		 START WITH 1
+		 INCREMENT BY 1
+		 MINVALUE -9223372036854775808
+		 MAXVALUE 9223372036854775807
+		 CACHE                         /*cache is used to default storage*/
+
+output:
+       Commands completed successfully.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+#INSERT VALUES IN "COURSES" TABLE:
+
+command:
+		 INSERT INTO courses (
+		 CourseId
+		 ,[URL]
+		 ,title,[level],authors,durationInMinutes,
+							   publishedDate,audienceTags,certificationTags,[description])
+		SELECT                            /*instead of using values */
+			'SC'+CONVERT(VARCHAR(500),NEXT VALUE FOR [dbo].[sqrand]) as CourseId,
+			xm_course.row.query('URL').value('.','NVARCHAR(500)'),
+			xm_course.row.query('title').value('.','NVARCHAR(200)'),
+			xm_course.row.query('level').value('.','NVARCHAR(100)'),
+			xm_course.row.query('authors').value('.','NVARCHAR(100)'),
+			xm_course.row.query('durationInMinutes').value('.','INT'),
+			xm_course.row.query('publishedDate').value('.','DATE'),
+			xm_course.row.query('audienceTags').value('.','NVARCHAR(100)'),
+			xm_course.row.query('certificationTags').value('.','NVARCHAR(100)'),
+			xm_course.row.query('description').value('.','NVARCHAR(MAX)')
+		FROM (SELECT CAST(xm_course AS Xml)
+			FROM OPENROWSET(BULK 'C:\Users\vishal\Desktop\task.xml',SINGLE_BLOB) AS T(xm_course)) AS T(xm_course)
+			CROSS APPLY xm_course.nodes('root/row') as xm_course (row);
+			
+			
+output:
+	   (9 rows affected)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+command:
+        select Id ,CourseId,level,authors,durationInMinutes,publishedDate,audienceTags,certificationTags,date  from courses;
+		
+output:
+
+|	Id   |  CourseId  |	level         |  authors                                | durationInMinutes | publishedDate                          |	           date                          
+		
+	1    |    SC1	         | Intermediate  |	Sahil Malik	        |  80	                         |              2021-07-21	 |	                    2022-05-25 14:37:16.527
+	2    |    SC2	         | Beginner        | Abdul Rehman Yousaf        |  94	       	     |  	2021-07-20	 |		2022-05-25 14:37:16.527
+	3    |    SC3	         | Intermediate  |	Axel Sirota	        |  59	       	     |  	2021-07-20	 |		2022-05-25 14:37:16.527
+	4    |    SC4	         | Intermediate  |	Piotr Gaczkowski	        |  123	       	     |  	2021-07-20	 |		2022-05-25 14:37:16.527
+	5    |    SC5	         | Beginner        | Google Cloud	        |  79	        	     |  	2021-07-20	 |		2022-05-25 14:37:16.527
+	6    |    SC6	         | Beginner        | Paul Kirby	                            |  76	    	     |  	2021-07-20	 |		2022-05-25 14:37:16.527
+	7    |    SC7	         | Intermediate  | Marcin Hoppe	        |  65	           	     |  	2021-07-20	 |		2022-05-25 14:37:16.527
+	8    |    SC8	         | Beginner        |  Google Cloud	        |  100	    	     |  	2021-07-20	 |		2022-05-25 14:37:16.527
+	9    |    SC9	         | Intermediate  |	ng-conf	                            |  12		     |  	2021-07-19	 |		2022-05-25 14:37:16.527		
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# TO UPDATE TABLE "COURSES":
+
+Prepend the following string to data in URL column:
+'https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2F'
+
+&
+ 
+Replace accent characters like a€™ with apostrophe (') wherever required.
+                           
+                          
+command:
+		
+	WITH ParsedXML 
+(
+[URL],
+title,
+[level],
+authors,
+durationInMinutes,
+publishedDate,
+audienceTags,
+certificationTags,
+description
+)
+AS
+(
+SELECT 
+	
+	xm_course.row.query('URL').value('.','NVARCHAR(500)'),
+	xm_course.row.query('title').value('.','NVARCHAR(200)'),
+	xm_course.row.query('level').value('.','NVARCHAR(100)'),
+	xm_course.row.query('authors').value('.','NVARCHAR(100)'),
+	xm_course.row.query('durationInMinutes').value('.','INT'),
+	xm_course.row.query('publishedDate').value('.','DATE'),
+	xm_course.row.query('audienceTags').value('.','NVARCHAR(100)'),
+	xm_course.row.query('certificationTags').value('.','NVARCHAR(100)'),
+	xm_course.row.query('description').value('.','NVARCHAR(MAX)')
+FROM (SELECT CAST(xm_course AS Xml)
+	FROM OPENROWSET(BULK 'C:\Users\vishal\Desktop\task_new.xml',SINGLE_BLOB) AS T(xm_course)) AS T(xm_course)
+	CROSS APPLY xm_course.nodes('root/row') as xm_course (row)
+)
+UPDATE t 
+SET 
+    t.[URL] =REPLACE('https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2F'+p.[URL], 'a€™', ''''),
+    t.title = p.title ,
+	t.[level] = p.[level] ,
+	t.authors = p.authors ,
+	t.durationInMinutes = p.durationInMinutes ,
+	t.publishedDate = p.publishedDate ,
+	t.audienceTags = p.audienceTags ,
+	t.certificationTags = p.certificationTags ,
+	t.[description] = p.[description]
+FROM courses t
+INNER JOIN ParsedXml p ON t.[URL] = p.[URL]
+
+output:
+       (9 rows affected)
+	   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	   
+	   
+	   
+command:
+        select Id ,CourseId,URL from courses;
+		
+output:
+
+ 	Id   |  CourseId  |	URL     
+
+	 1    |    SC1        |  https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Fmicrosoft-identity-access-implementing-identity-governance-strategy-cert	Microsoft Identity and Access: Implementing an Identity Governance Strategy
+                     2    |    SC2        |  https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Fdesign-principles-machine-learning-framework	Design Principles for Machine Learning Framework
+                     3    |    SC3        | https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Fbuild-image-classifier-microsoft-azure-classifier-cognitive-service	Build an Image Classifier with Microsoft Azure Cognitive Service
+                     4    |    SC4        | https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Fnodejs-docker-developing-apps	Developing Node.js Apps with Docker
+                     5    |    SC5        | https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Finfrastructure-application-modernization-google-cloud-1	Infrastructure and Application Modernization with Google Cloud
+                     6    |    SC6        | https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Fhashicorp-packer-getting-started	Getting Started with HashiCorp Packer
+                     7    |    SC7        | https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Freact-security-best-practices	 React Security: Best Practices
+                     8    |    SC8        | https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Funderstanding-google-cloud-security-operations-1	Understanding Google Cloud Security and Operations
+                     9    |    SC9        | https://samplecourses.sxf.io/c/123456/2219/7890?u=https%3A%2F%2Fwww.samplecourses.com%2Fcourses%2Fng-conf-2021-session-15	Angular and Core Web Vitals

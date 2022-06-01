@@ -1,0 +1,104 @@
+<root class="hidden">
+<link type="text/css" id="dark-mode" rel="stylesheet"/>
+<style type="text/css" id="dark-mode-сustom-style"/>
+<style type="text/css" id="dark-mode-theme-changer-style"/>
+<row>
+<URL>microsoft-identity-access-implementing-identity-governance-strategy-cert</URL>
+<title>Microsoft Identity and Access: Implementing an Identity Governance Strategy</title>
+<level>Intermediate</level>
+<authors>Sahil Malik</authors>
+<durationInMinutes>70</durationInMinutes>
+<publishedDate>7/21/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>Security and governance should be at the forefront of every responsible IT administrator. In this course, Implement an Identity Governance Strategy, youa€™ll learn to manage and govern your Azure Active Directory or AAD. First, youa€™ll explore entitlement management where we will understand catalogs, access packages, and user lifecycle management. Next, youa€™ll discover important concepts such as access reviews and privileged identity management. Finally, youa€™ll learn how to how to make the best use of the logs that AAD produces. When youa€™re finished with this course, youa€™ll have the skills and knowledge of implement an identity governance strategy needed to govern and manage your AAD.</description>
+</row>
+<row>
+<URL>design-principles-machine-learning-framework</URL>
+<title>Design Principles for Machine Learning Framework</title>
+<level>Beginner</level>
+<authors>Abdul Rehman Yousaf</authors>
+<durationInMinutes>84</durationInMinutes>
+<publishedDate>7/20/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>Design patterns capture best practices and solutions to common problems. In this course, Design Principles for Machine Learning Framework, youa€™ll learn to implement scalable data pipelines for machine learning systems. First, youa€™ll explore guiding principles for machine learning operations. Next, youa€™ll discover why you should use data pipelines to process incoming data in real-time. Finally, you'll learn how to evaluate the performance of a machine learning system. When youa€™re finished with this course, youa€™ll have the skills and knowledge of machine learning operations needed to orchestrate a scalable and powerful system.</description>
+</row>
+<row>
+<URL>build-image-classifier-microsoft-azure-classifier-cognitive-service</URL>
+<title>Build an Image Classifier with Microsoft Azure Cognitive Service</title>
+<level>Intermediate</level>
+<authors>Axel Sirota</authors>
+<durationInMinutes>59</durationInMinutes>
+<publishedDate>7/20/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>Microsoft Azure Custom Vision democratizes advanced computer vision techniques to everyone creating state of the art models in a few clicks. In this course, Build an Image Classifier with Microsoft Azure Cognitive Service, youa€™ll gain the ability to create a state of the art custom image classifier model in Microsoft Azure Custom Vision. First, youa€™ll explore the model lifecycle. Next, youa€™ll discover how to train and improve a model in Custom Vision. Finally, youa€™ll learn how to deploy a Custom Vision model anywhere. When youa€™re finished with this course, youa€™ll have the skills and knowledge of Microsoft Azure Custom Vision needed to create a state of the art custom image classifier model.</description>
+</row>
+<row>
+<URL>nodejs-docker-developing-apps</URL>
+<title>Developing Node.js Apps with Docker</title>
+<level>Intermediate</level>
+<authors>Piotr Gaczkowski</authors>
+<durationInMinutes>123</durationInMinutes>
+<publishedDate>7/20/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>Application containers make it easier to deploy, scale, and monitor distributed applications. In this course, Developing Node.js Apps with Docker, youa€™ll learn to build and debug Node.js application containers. First, youa€™ll explore the different base images to use. Next, youa€™ll discover how to configure, run, and debug the containers. Finally, youa€™ll learn how to run complex systems with multiple containers. When youa€™re finished with this course, youa€™ll have the skills and knowledge of application containers needed to build modern applications.</description>
+</row>
+<row>
+<URL>infrastructure-application-modernization-google-cloud-1</URL>
+<title>Infrastructure and Application Modernization with Google Cloud</title>
+<level>Beginner</level>
+<authors>Google Cloud</authors>
+<durationInMinutes>79</durationInMinutes>
+<publishedDate>7/20/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>Many traditional enterprises use legacy systems and applications that often struggle to achieve the scale and speed needed to meet modern customer expectations. Business leaders and IT decision makers constantly have to choose between maintenance of legacy systems and investing in innovative new products and services. This course explores the challenges of an outdated IT infrastructure and how businesses can modernize it using cloud technology. It begins by exploring the different compute options available in the cloud and the benefits of each, before turning to application modernization and Application Programming Interfaces (APIs). The course also considers a range of Google Cloud solutions that can help businesses to better develop and manage their systems, such as Compute Engine, App Engine, and Apigee.</description>
+</row>
+<row>
+<URL>hashicorp-packer-getting-started</URL>
+<title>Getting Started with HashiCorp Packer</title>
+<level>Beginner</level>
+<authors>Paul Kirby</authors>
+<durationInMinutes>76</durationInMinutes>
+<publishedDate>7/20/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>Has a developer ever given the excuse of a€œit works on my machinea€ for an issue in production? Have you ever struggled with keeping your infrastructure configuration in sync across multiple machines and environments? In this course, Getting Started with HashiCorp Packer, youa€™ll learn to use Packer to build automated machine images that run in multiple environments with the same configuration, all but eliminating those problems! First, youa€™ll explore how to build a basic empty image for usage on AWS EC2. Next, youa€™ll discover how to populate that image with all of the configuration needed for your application, along with encrypted secrets from AWS Secrets Manager. Finally, youa€™ll learn how to expand this image to work on multiple platforms, including Vagrant for local development. When youa€™re finished with this course, youa€™ll have the skills and knowledge of HashiCorp Packer needed to automate the building of your infrastructure, and banish the a€œworks on my machinea€ curse to the dustbin where it belongs!</description>
+</row>
+<row>
+<URL>react-security-best-practices</URL>
+<title> React Security: Best Practices</title>
+<level>Intermediate</level>
+<authors>Marcin Hoppe</authors>
+<durationInMinutes>65</durationInMinutes>
+<publishedDate>7/20/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>Users expect Web applications to be secure and React apps are no different. In this course, React Security: Best Practices, youa€™ll learn to improve the security of your React applications. First, youa€™ll explore how to use React features to prevent cross-site scripting attacks. Next, youa€™ll discover how to safely render dynamic HTML in your React components. Finally, youa€™ll learn how to prevent code injection vulnerabilities when using server-side rendering. When youa€™re finished with this course, youa€™ll have the skills and knowledge of React security best practices needed to better protect your users.</description>
+</row>
+<row>
+<URL>understanding-google-cloud-security-operations-1</URL>
+<title>Understanding Google Cloud Security and Operations</title>
+<level>Beginner</level>
+<authors>Google Cloud</authors>
+<durationInMinutes>79</durationInMinutes>
+<publishedDate>7/20/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>This course examines cost management, security, and operations in the cloud. First, it explores how businesses can choose to maintain some or none of their own infrastructure by purchasing IT services from a cloud provider. Next, it explains how the responsibility of data security is shared between the cloud provider and the business, and explores the defense-in-depth security built into Google Cloud. Finally, it covers how IT teams and business leaders need to rethink IT resource management in the cloud and how Google Cloud resource monitoring tools can help them to maintain control and visibility over their cloud environment.</description>
+</row>
+<row>
+<URL>ng-conf-2021-session-15</URL>
+<title>Angular and Core Web Vitals</title>
+<level>Intermediate</level>
+<authors>ng-conf</authors>
+<durationInMinutes>12</durationInMinutes>
+<publishedDate>7/19/21</publishedDate>
+<audienceTags/>
+<certificationTags/>
+<description>In this talk, wea€™ll explore some of the optimizations Angular does under the hood to improve your CWV metrics. In the second part of the presentation, wea€™ll explore techniques for debugging and optimization to achieve the perfect performance score</description>
+</row>
+</root>
